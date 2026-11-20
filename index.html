@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10131b">
+  <title>ایران پنل | داشبورد مدیریت</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#" aria-label="ایران پنل">
+        <span class="brand-mark">IP</span>
+        <span><b>IRAN PANEL</b><small>پنل مدیریت</small></span>
+      </a>
+      <div class="side-label">منوی اصلی</div>
+      <nav>
+        <button class="nav-item active" data-page="overview"><span>▦</span> نمای کلی</button>
+        <button class="nav-item" data-page="configs"><span>⌘</span> کانفیگ‌ها</button>
+        <button class="nav-item" data-page="users"><span>♙</span> کاربران</button>
+        <button class="nav-item" data-page="activity"><span>◷</span> گزارش فعالیت</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-label">سیستم</div>
+        <button class="nav-item" data-page="settings"><span>⚙</span> تنظیمات</button>
+        <div class="side-note"><span class="status-dot"></span> نسخه نمایشی فعال</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <button class="mobile-menu" id="menuBtn" aria-label="باز کردن منو">☰</button>
+        <div class="breadcrumb">ایران پنل <span>/</span> <b id="crumb">نمای کلی</b></div>
+        <div class="top-actions">
+          <span class="live-pill"><i></i> وضعیت سیستم: آنلاین</span>
+          <div class="avatar">م</div>
+        </div>
+      </header>
+
+      <section class="page active" id="overview">
+        <div class="welcome-row">
+          <div><div class="eyebrow">داشبورد مدیریت</div><h1>خوش آمدید 👋</h1><p>نمایی سریع از وضعیت پنل و اطلاعات ثبت‌شده</p></div>
+          <div class="date-chip" id="today">امروز</div>
+        </div>
+        <div class="notice"><span>✦</span><div><b>به ایران پنل خوش آمدید</b><p>این نسخه نمایشی است؛ داده‌ها فقط در همین مرورگر ذخیره می‌شوند.</p></div><button class="notice-close" aria-label="بستن" onclick="this.parentElement.remove()">×</button></div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>تعداد کانفیگ‌ها</span><span class="stat-icon violet">⌘</span></div><strong id="configCount">۳</strong><small>موارد ثبت‌شده در پنل</small></article>
+          <article class="stat-card"><div class="stat-top"><span>کاربران</span><span class="stat-icon blue">♙</span></div><strong id="userCount">۱۲۸</strong><small>نمونه آماری نمایشی</small></article>
+          <article class="stat-card"><div class="stat-top"><span>کانفیگ‌های فعال</span><span class="stat-icon green">✓</span></div><strong id="activeCount">۲</strong><small>بر اساس وضعیت ثبت‌شده</small></article>
+          <article class="stat-card"><div class="stat-top"><span>رویدادهای امروز</span><span class="stat-icon orange">◷</span></div><strong id="eventCount">۸</strong><small>فعالیت‌های نمونه</small></article>
+        </div>
+        <div class="content-grid">
+          <section class="panel">
+            <div class="panel-heading"><div><h2>آخرین کانفیگ‌ها</h2><p>آخرین موارد اضافه‌شده به فهرست</p></div><button class="text-button" data-goto="configs">مشاهده همه ←</button></div>
+            <div class="table-wrap"><table><thead><tr><th>نام</th><th>نوع</th><th>وضعیت</th><th>تاریخ</th></tr></thead><tbody id="recentRows"></tbody></table></div>
+          </section>
+          <section class="panel quick-panel">
+            <div class="panel-heading"><div><h2>دسترسی سریع</h2><p>مدیریت بخش‌های اصلی</p></div></div>
+            <button class="quick-link" data-goto="configs"><span class="quick-icon violet">＋</span><span><b>مدیریت کانفیگ‌ها</b><small>افزودن و مشاهده موارد</small></span><i>←</i></button>
+            <button class="quick-link" data-goto="users"><span class="quick-icon blue">♙</span><span><b>فهرست کاربران</b><small>مشاهده کاربران نمونه</small></span><i>←</i></button>
+            <button class="quick-link" data-goto="settings"><span class="quick-icon orange">⚙</span><span><b>تنظیمات پنل</b><small>مشخصات و ترجیحات</small></span><i>←</i></button>
+          </section>
+        </div>
+        <footer>© ۱۴۰۵ ایران پنل · نسخه نمایشی</footer>
+      </section>
+
+      <section class="page" id="configs">
+        <div class="page-heading"><div><div class="eyebrow">مدیریت منابع</div><h1>کانفیگ‌ها</h1><p>فهرست کانفیگ‌هایی که خودتان مجاز به مدیریت آن‌ها هستید</p></div><button class="primary-btn" id="addOpen">＋ افزودن مورد</button></div>
+        <section class="panel">
+          <div class="toolbar"><input id="configSearch" type="search" placeholder="جستجو در نام یا نوع..."><select id="statusFilter"><option value="all">همه وضعیت‌ها</option><option value="فعال">فعال</option><option value="غیرفعال">غیرفعال</option></select></div>
+          <div class="table-wrap"><table><thead><tr><th>نام کانفیگ</th><th>نوع</th><th>توضیحات</th><th>وضعیت</th><th>عملیات</th></tr></thead><tbody id="configRows"></tbody></table></div>
+          <div class="empty-state" id="emptyConfigs" hidden>موردی پیدا نشد.</div>
+        </section>
+        <p class="helper">برای حفظ امنیت، اطلاعات حساس یا لینک‌های خصوصی را در این نسخه نمایشی وارد نکنید.</p>
+      </section>
+
+      <section class="page" id="users">
+        <div class="page-heading"><div><div class="eyebrow">مدیریت دسترسی</div><h1>کاربران</h1><p>فهرست نمونه برای نمایش رابط کاربری</p></div></div>
+        <section class="panel"><div class="toolbar"><input id="userSearch" type="search" placeholder="جستجوی نام یا ایمیل..."></div>
+          <div class="table-wrap"><table><thead><tr><th>کاربر</th><th>ایمیل نمونه</th><th>نقش</th><th>وضعیت</th></tr></thead><tbody id="userRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section class="page" id="activity">
+        <div class="page-heading"><div><div class="eyebrow">پیگیری تغییرات</div><h1>گزارش فعالیت</h1><p>رویدادهای نمونه در نسخه نمایشی</p></div></div>
+        <section class="panel"><div class="activity-list" id="activityList"></div></section>
+      </section>
+
+      <section class="page" id="settings">
+        <div class="page-heading"><div><div class="eyebrow">شخصی‌سازی</div><h1>تنظیمات</h1><p>اطلاعات پایه نسخه نمایشی</p></div></div>
+        <section class="panel settings-panel">
+          <div class="setting-row"><div><b>نام پنل</b><small>عنوان نمایشی پروژه</small></div><strong>IRAN PANEL</strong></div>
+          <div class="setting-row"><div><b>زبان</b><small>زبان رابط کاربری</small></div><strong>فارسی</strong></div>
+          <div class="setting-row"><div><b>میزبانی پیشنهادی</b><small>برای انتشار فایل‌های استاتیک</small></div><strong>Cloudflare Pages</strong></div>
+          <div class="setting-row"><div><b>نوع نسخه</b><small>اتصال سرور و احراز هویت هنوز راه‌اندازی نشده</small></div><strong class="warning-text">دموی فرانت‌اند</strong></div>
+        </section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="configDialog">
+    <form id="configForm" method="dialog">
+      <div class="dialog-head"><div><h2>افزودن کانفیگ</h2><p>فقط اطلاعات غیرحساس و مجاز وارد کنید.</p></div><button type="button" class="close-btn" id="dialogClose">×</button></div>
+      <label>نام نمایشی<input name="name" required maxlength="40" placeholder="مثلاً کانفیگ آزمایشی"></label>
+      <label>نوع<select name="type"><option>VLESS</option><option>VMess</option><option>WireGuard</option><option>OpenVPN</option><option>سایر</option></select></label>
+      <label>توضیحات کوتاه<input name="description" maxlength="80" placeholder="توضیح اختیاری"></label>
+      <label>وضعیت<select name="status"><option>فعال</option><option>غیرفعال</option></select></label>
+      <div class="dialog-actions"><button type="button" class="secondary-btn" id="cancelAdd">انصراف</button><button class="primary-btn" type="submit">ذخیره مورد</button></div>
+    </form>
+  </dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
